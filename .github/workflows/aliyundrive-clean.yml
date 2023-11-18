@@ -22,5 +22,5 @@ jobs:
       run: |
         ./aliyunpan/aliyunpan login -RefreshToken=${{ secrets.ALIYUNPAN_TOKEN }}
         ./aliyunpan/aliyunpan drive 678415103
-        ./aliyunpan/aliyunpan ll
+        ./aliyunpan/aliyunpan rm /小雅转存文件夹/*
         ./aliyunpan/aliyunpan recycle delete -all

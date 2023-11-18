@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Download aliyunpan command
       run: |
+        echo "${{ env.ALIYUNPAN_VERSION }}"
+        echo ${{ env.ALIYUNPAN_VERSION }}
         wget https://github.com/tickstep/aliyunpan/releases/download/v${{ env.ALIYUNPAN_VERSION }}/aliyunpan-v${{ env.ALIYUNPAN_VERSION }}-linux-amd64.zip
         unzip aliyunpan-v${{ env.ALIYUNPAN_VERSION }}-linux-amd64.zip
         mv aliyunpan-v${{ env.ALIYUNPAN_VERSION }}-linux-amd64 aliyunpan

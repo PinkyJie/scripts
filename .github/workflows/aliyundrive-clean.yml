@@ -1,0 +1,27 @@
+name: AliyunDrive Clean Task
+
+on:
+  schedule:
+    - cron: '20 17 * * *'
+  workflow_dispatch:
+
+jobs:
+  aliyundrive-clean:
+    runs-on: ubuntu-latest
+    env:
+      ALIYUNPAN_VERSION: "0.2.8"
+      ALIYUNPAN_TOKEN: ${{ secrets.ALIYUNPAN_TOKEN }}
+    steps:
+    - name: Download aliyunpan command
+      run: |
+        wget https://github.com/tickstep/aliyunpan/releases/download/v$ALIYUNPAN_VERSION/aliyunpan-v0.2.8-linux-amd64.zip
+        unzip aliyunpan-v$ALIYUNPAN_VERSION-linux-amd64.zip
+        cd aliyunpan-v$ALIYUNPAN_VERSION-linux-amd64
+        ./aliyunpan help
+
+    - name: Login to aliyunpan
+      run: aliyunpan login -RefreshToken=$ALIYUNPAN_TOKEN
+
+    - name: Delete the Xiaoya folder
+      run: |
+        aliyunpan ls

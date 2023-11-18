@@ -20,8 +20,9 @@ jobs:
         ./aliyunpan help
 
     - name: Login to aliyunpan
-      run: aliyunpan login -RefreshToken=$ALIYUNPAN_TOKEN
+      run: ./aliyunpan login -RefreshToken=$ALIYUNPAN_TOKEN
 
     - name: Delete the Xiaoya folder
       run: |
-        aliyunpan ls
+        ./aliyunpan pwd
+        ./aliyunpan ls

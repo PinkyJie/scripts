@@ -2,7 +2,7 @@ name: AliyunDrive Clean Task
 
 on:
   schedule:
-    - cron: '20 17 * * *'
+    - cron: '00 20 * * *'
   workflow_dispatch:
 
 jobs:

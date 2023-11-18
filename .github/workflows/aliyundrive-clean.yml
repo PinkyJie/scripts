@@ -9,7 +9,6 @@ jobs:
   aliyundrive-clean:
     runs-on: ubuntu-latest
     env:
-      ALIYUNPAN_VERSION: "0.2.8"
       ALIYUNPAN_TOKEN: ${{ secrets.ALIYUNPAN_TOKEN }}
     steps:
     - name: Download aliyunpan command
@@ -19,10 +18,10 @@ jobs:
         mv aliyunpan-v$ALIYUNPAN_VERSION-linux-amd64 aliyunpan
         ./aliyunpan/aliyunpan help
 
-    - name: Login to aliyunpan
-      run: ./aliyunpan/aliyunpan login -RefreshToken=$ALIYUNPAN_TOKEN
-
     - name: Delete the Xiaoya folder
       run: |
+        ./aliyunpan/aliyunpan login -RefreshToken=$ALIYUNPAN_TOKEN
         ./aliyunpan/aliyunpan pwd
         ./aliyunpan/aliyunpan ls
+        ./aliyunpan/aliyunpan drive
+        ./aliyunpan/aliyunpan help recycle

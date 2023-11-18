@@ -16,13 +16,13 @@ jobs:
       run: |
         wget https://github.com/tickstep/aliyunpan/releases/download/v$ALIYUNPAN_VERSION/aliyunpan-v0.2.8-linux-amd64.zip
         unzip aliyunpan-v$ALIYUNPAN_VERSION-linux-amd64.zip
-        cd aliyunpan-v$ALIYUNPAN_VERSION-linux-amd64
-        ./aliyunpan help
+        mv aliyunpan-v$ALIYUNPAN_VERSION-linux-amd64 aliyunpan
+        ./aliyunpan/aliyunpan help
 
     - name: Login to aliyunpan
-      run: ./aliyunpan login -RefreshToken=$ALIYUNPAN_TOKEN
+      run: ./aliyunpan/aliyunpan login -RefreshToken=$ALIYUNPAN_TOKEN
 
     - name: Delete the Xiaoya folder
       run: |
-        ./aliyunpan pwd
-        ./aliyunpan ls
+        ./aliyunpan/aliyunpan pwd
+        ./aliyunpan/aliyunpan ls

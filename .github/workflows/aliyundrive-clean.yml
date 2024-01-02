@@ -21,6 +21,7 @@ jobs:
     - name: Delete the Xiaoya folder
       run: |
         ./aliyunpan/aliyunpan login -RefreshToken=${{ secrets.ALIYUNPAN_TOKEN }}
+        ./aliyunpan token update
         driveOutput=$(./aliyunpan/aliyunpan drive)
         driveId=$(echo $output | grep -o -E "(\d+) 资源库" | awk '{print $1}')
         ./aliyunpan/aliyunpan drive $driveId
